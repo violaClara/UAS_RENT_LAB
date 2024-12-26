@@ -4470,8 +4470,13 @@ var wizardInit = function wizardInit() {
     var tabToggleButtonEl = wizard.querySelectorAll('[data-wizard-step]');
     var inputEmail = wizard.querySelector('[data-wizard-validate-email]');
     var emailPattern = inputEmail.getAttribute('pattern');
-    var inputPassword = wizard.querySelector('[data-wizard-validate-password]');
-    var inputConfirmPassword = wizard.querySelector('[data-wizard-validate-confirm-password]');
+    var inputStatus = wizard.querySelector('[data-wizard-validate-status]');
+    var inputNama = wizard.querySelector('[data-wizard-validate-nama]');
+    var inputNi = wizard.querySelector('[data-wizard-validate-ni]');
+    var inputNotelp = wizard.querySelector('[data-wizard-validate-notelp]');
+    var inputAlat = wizard.querySelector('[data-wizard-validate-alat]');
+    var inputJumlahAlat = wizard.querySelector('[data-wizard-validate-jumlahAlat]');
+    var inputTanggal = wizard.querySelector('[data-wizard-validate-tanggal]');
     var form = wizard.querySelector('[novalidate]');
     var nextButton = wizard.querySelector('.next button');
     var prevButton = wizard.querySelector('.previous button');
@@ -4486,7 +4491,7 @@ var wizardInit = function wizardInit() {
     prevButton.classList.add('d-none'); // on button click tab change
 
     nextButton.addEventListener('click', function () {
-      if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+      if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputStatus.value || !inputNama.value || !inputNi.value || !inputNotelp.value || !inputAlat.value || !inputJumlahAlat.value || !inputTanggal.value) && form.className.includes('needs-validation')) {
         form.classList.add('was-validated');
       } else {
         count += 1;
@@ -4504,7 +4509,7 @@ var wizardInit = function wizardInit() {
       tabToggleButtonEl.forEach(function (item, index) {
         /* eslint-disable */
         item.addEventListener('shown.bs.tab', function (e) {
-          if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+          if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputStatus.value || !inputNama.value || !inputNi.value || !inputNotelp.value || !inputAlat.value || !inputJumlahAlat.value || !inputTanggal.value ) && form.className.includes('needs-validation')) {
             e.preventDefault();
             form.classList.add('was-validated');
             return null;

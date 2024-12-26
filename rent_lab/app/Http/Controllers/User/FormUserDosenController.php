@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
 use App\Models\Tool;
 use App\Models\BorrowHistory;
 
-class HomeAdminController extends Controller{
+class FormUserDosenController extends Controller{
     public function index(Request $request)
     {
         // Fetch borrow history data with filters
@@ -35,7 +35,7 @@ class HomeAdminController extends Controller{
         $tools = Tool::all();
 
         // Pass both borrowHistories and tools data to the view
-        return view('admin.admin_home', compact('borrowHistories', 'tools'));
+        return view('user.user_form_dosen', compact('borrowHistories', 'tools'));
     }
 }
 ?>
