@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tool;
 use App\Models\BorrowHistory;
 
-class HomeAdminController extends Controller{
+class LogoutAdminController extends Controller{
     public function index(Request $request)
     {
         // Fetch borrow history data with filters
@@ -35,7 +35,7 @@ class HomeAdminController extends Controller{
         $tools = Tool::all();
 
         // Pass both borrowHistories and tools data to the view
-        return view('admin.admin_home', compact('borrowHistories', 'tools'));
+        return view('admin.admin_logout', compact('borrowHistories', 'tools'));
     }
 }
 ?>
