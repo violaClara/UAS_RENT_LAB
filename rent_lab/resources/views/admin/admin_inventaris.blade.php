@@ -13,15 +13,63 @@
                     id="dom-603ac24c-ea41-4c86-96c0-b0f750fb6de0">
                     <div id="tableExample2" data-list='{"valueNames":["nama_alat","deskripsi","jml_total_alat", "jml_alat_tersedia", "status_alat"],"page":5,"pagination":true}'>
                         <div class="table-responsive scrollbar">
+                            <div class="d-grid gap-2"><button class="btn btn-primary" type="button"data-bs-toggle="modal" data-bs-target="#tambah_data">Tambah</button></div>
+
+                            {{-- modal tambah --}}
+                            <div class="modal fade text" id="tambah_data" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                    <div class="modal-content position-relative">
+                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                        <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body p-0">
+                                        <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                                        <h4 class="mb-1" id="modalExampleDemoLabel">Tambah Data Inventaris</h4>
+                                        </div>
+                                        <div class="p-4 pb-0">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label class="col-form-label" for="nama_alat" style="font-size: 16px; font-weight:500;">Nama Alat:</label>
+                                                <input class="form-control" id="nama_alat" type="text" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="col-form-label" for="deskripsi" style="font-size: 16px; font-weight:500;">Deskripsi:</label>
+                                                <textarea class="form-control" id="deskripsi"></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="col-form-label" for="jml_total_alat" style="font-size: 16px; font-weight:500;">Jumlah Total Alat:</label>
+                                                <input class="form-control" id="jml_total_alat" type="number" min="0" step="1" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="col-form-label" for="jml_alat_tersedia" style="font-size: 16px; font-weight:500;">Jumlah Alat Tersedia:</label>
+                                                <input class="form-control" id="jml_alat_tersedia" type="number" min="0" step="1" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label" for="status_alat" style="font-size: 16px; font-weight:500;">Status*</label>
+                                                <select class="form-select" name="status" id="status_alat">
+                                                    <option value="">Pilih status alat ...</option>
+                                                    <option value="available">Available</option>
+                                                </select>
+                                            </div>
+                                            <br><br>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Simpan </button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
                             <table class="table table-bordered table-striped fs--1 mb-0">
                                 <thead class="bg-200 text-900">
                                     <tr>
-                                        <th class="sort text-center" data-sort="nama_alat">Nama Alat</th>
-                                        <th class="sort text-center" data-sort="deskripsi">Deskripsi</th>
-                                        <th class="sort text-center" data-sort="jml_total_alat">Jumlah Total Alat</th>
-                                        <th class="sort text-center" data-sort="jml_alat_tersedia">Jumlah Alat Tersedia</th>
-                                        <th class="sort text-center" data-sort="status_alat">Status</th>
-                                        <th class="sort text-center" data-sort="edit">Edit</th>
+                                        <th class="sort text-center align-middle" data-sort="nama_alat">Nama Alat</th>
+                                        <th class="sort text-center align-middle" data-sort="deskripsi">Deskripsi</th>
+                                        <th class="sort text-center align-middle" data-sort="jml_total_alat">Jumlah Total <br> Alat</th>
+                                        <th class="sort text-center align-middle" data-sort="jml_alat_tersedia">Jumlah Alat <br> Tersedia</th>
+                                        <th class="sort text-center align-middle" data-sort="status_alat">Status</th>
+                                        <th class="sort text-center align-middle" data-sort="edit">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -33,9 +81,11 @@
                                             <td class="jml_alat_tersedia text-center">{{ $tool->available_quantity }}</td>
                                             <td class="status_alat text-center">{{ $tool->status }}</td>
                                             <td class="edit text-center">
-                                                <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#error-modal">Edit</button>
-                                                {{-- modal --}}
-                                                <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <button class="btn btn-primary me-1 mb-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#edit_data">Edit</button><br>
+                                                <button class="btn btn-danger me-1 mb-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#hapus_data">Hapus</button>
+                                            </td>
+                                            {{-- modal edit --}}
+                                            <div class="modal fade" id="edit_data" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
                                                     <div class="modal-content position-relative">
                                                     <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
@@ -80,7 +130,21 @@
                                                     </div>
                                                 </div>
                                                 </div>
-                                            </td>
+
+                                                {{-- modal hapus--}}
+                                                <div class="modal fade" id="hapus_data" data-keyboard="false" tabindex="-1" aria-labelledby="approveLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="approveLabel">Hapus Data Inventaris</h5><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body modal-dialog modal-dialog-scrollable mt-0" style="margin: 0;">
+                                                            <p>Apakah anda yakin untuk menghapus data?</p>
+                                                        </div>
+                                                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button><button class="btn btn-primary" type="button" href="#">Ya</button></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -11,30 +11,32 @@
             <div class="tab-pane preview-tab-pane active" role="tabpanel"
                 aria-labelledby="tab-dom-c0a1d3af-5407-4848-8cf1-33f9100ad9e8"
                 id="dom-c0a1d3af-5407-4848-8cf1-33f9100ad9e8">
-                <div id="tableExample" data-list='{"valueNames":["nim","nama_peminjam","alat", "jml_alat", "tgl_pinjam", "tgl_kembali", "status"],"page":5,"pagination":true}'>
+                <div id="tableExample" data-list='{"valueNames":["status_peminjam", "ni","nama_peminjam","alat", "jml_alat", "tgl_pinjam", "tgl_kembali", "status_pinjam"],"page":5,"pagination":true}'>
                     <div class="table-responsive scrollbar">
                         <table class="table table-bordered table-striped fs--1 mb-0">
                             <thead class="bg-200 text-900">
                                 <tr>
-                                    <th class="sort text-center" data-sort="nim">NIM</th>
-                                    <th class="sort text-center" data-sort="nama_peminjam">Nama</th>
-                                    <th class="sort text-center" data-sort="alat">Alat</th>
-                                    <th class="sort text-center" data-sort="jml_alat">Jumlah Alat</th>
-                                    <th class="sort text-center" data-sort="tgl_pinjam">Tanggal Peminjaman</th>
-                                    <th class="sort text-center" data-sort="tgl_kembali">Tanggal Pengembalian</th>
-                                    <th class="sort text-center" data-sort="status_peminjaman">Status</th>
+                                    <th class="sort text-center align-middle" data-sort="status_peminjam">Status <br> Peminjam</th>
+                                    <th class="sort text-center align-middle" data-sort="ni">Nomor <br> Induk</th>
+                                    <th class="sort text-center align-middle" data-sort="nama_peminjam">Nama</th>
+                                    <th class="sort text-center align-middle" data-sort="alat">Alat</th>
+                                    <th class="sort text-center align-middle" data-sort="jml_alat">Jumlah <br> Alat</th>
+                                    <th class="sort text-center align-middle" data-sort="tgl_pinjam">Tanggal <br> Peminjaman</th>
+                                    <th class="sort text-center align-middle" data-sort="tgl_kembali">Tanggal <br> Pengembalian</th>
+                                    <th class="sort text-center align-middle" data-sort="status_pinjam">Status</th>
                                 </tr>
                             </thead>
                             <tbody class="list">
                                 @forelse($borrowHistories as $history)
                                     <tr>
-                                        <td class="nim text-center">{{ $history->borrower_id }}</td>
+                                        <td class="status_peminjam text-center">Dosen</td>
+                                        <td class="ni text-center">{{ $history->borrower_id }}</td>
                                         <td class="nama_peminjam text-center">{{ $history->borrower_name }}</td>
                                         <td class="alat text-center">{{ $history->tool->name ?? 'Unknown' }}</td>
                                         <td class="jml_alat text-center">{{ $history->amount }}</td>
                                         <td class="tgl_pinjam text-center">{{ $history->borrow_date }}</td>
                                         <td class="tgl_kembali text-center">{{ $history->return_date }}</td>
-                                        <td class="status_peminjaman text-center">
+                                        <td class="status_pinjam text-center">
                                             @if ($history->action == 'approved')
                                                 <button class="btn btn-primary me-1 mb-1 btn-sm" type="button">Approved</button>
                                                 <button class="btn btn-falcon-danger me-1 mb-1 disabled btn-sm" type="button">Rejected</button>
@@ -42,7 +44,7 @@
                                                 <button class="btn btn-falcon-primary me-1 mb-1 disabled btn-sm" type="button">Approved</button>
                                                 <button class="btn btn-danger me-1 mb-1 btn-sm" type="button">Rejected</button>
                                             @else
-                                                <button class="btn btn-falcon-primary me-1 mb-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#approve">Approve</button>
+                                                <button class="btn btn-falcon-primary me-1 mb-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#approve">Approve</button><br>
                                                 <button class="btn btn-falcon-danger me-1 mb-1 btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#reject">Reject</button>
 
                                                 {{-- modal approve reject--}}

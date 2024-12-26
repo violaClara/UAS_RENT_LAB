@@ -3461,7 +3461,7 @@ var listInit = function listInit() {
                 return true;
               }
 
-              return item.values().payment.toLowerCase().includes(e.target.value.toLowerCase());
+              return item.values().status_final.toLowerCase().includes(e.target.value.toLowerCase());
             });
           });
         }

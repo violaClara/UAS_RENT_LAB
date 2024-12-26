@@ -7,15 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Sistem Inventaris Laboratorium dan Peminjaman Alat</title>
-    
+
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="data:;base64,=">
     <script src="{{ asset('admin/assets/js/config.js') }}"></script>
     <script src="{{ asset('admin/vendors/overlayscrollbars/OverlayScrollbars.min.js') }}"></script>
-    
+
     <!-- Stylesheets -->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
+        rel="stylesheet">
     <link href="{{ asset('admin/vendors/overlayscrollbars/OverlayScrollbars.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/theme-rtl.min.css') }}" rel="stylesheet" id="style-rtl">
     <link href="{{ asset('admin/assets/css/theme.min.css') }}" rel="stylesheet" id="style-default">
@@ -74,7 +76,8 @@
                         <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
                             <!-- Dashboard Section -->
                             <li class="nav-item">
-                                <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
+                                <a class="nav-link dropdown-indicator" href="#dashboard" role="button"
+                                    data-bs-toggle="collapse" aria-expanded="false" aria-controls="dashboard">
                                     <div class="d-flex align-items-center">
                                         <span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span>
                                         <span class="nav-link-text ps-1">Dashboard Admin</span>
@@ -82,18 +85,18 @@
                                 </a>
                                 <ul class="nav collapse" id="dashboard">
                                     <li class="nav-item"><a class="nav-link" href="profil_admin">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text ps-1">Profil Admin</span>
-                                        </div>
-                                    </a></li>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-text ps-1">Profil Admin</span>
+                                            </div>
+                                        </a></li>
                                     <li class="nav-item"><a class="nav-link" href="home_admin">
-                                        <div class="d-flex align-items-center">
-                                            <span class="nav-link-text ps-1">Statistik Peminjaman</span>
-                                        </div>
-                                    </a></li>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-text ps-1">Statistik Peminjaman</span>
+                                            </div>
+                                        </a></li>
                                 </ul>
                             </li>
-                            
+
                             <!-- Data Section -->
                             <li class="nav-item">
                                 <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
@@ -124,13 +127,17 @@
                         </ul>
                     </div>
                 </div>
-                
+
             </nav>
             <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-xl" style="display: none;">
             </nav>
             <div class="content">
                 <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand" style="display: none;">
-                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+                    <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
+                        aria-controls="navbarVerticalCollapse" aria-expanded="false"
+                        aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span
+                                class="toggle-line"></span></span></button>
                     <a class="navbar-brand" href="home_admin">
                         <div class="d-flex align-items-center py-3"><span class="font-sans-serif"
                                 style="font-size: 20px">Sistem Inventaris</span></div>
@@ -150,22 +157,22 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser"
-                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="avatar avatar-xl">
-                                <img class="rounded-circle" src="{{ asset('admin/assets/img/icons/profile.png') }}"
-                                    alt="" />
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="avatar avatar-xl">
+                                    <img class="rounded-circle"
+                                        src="{{ asset('admin/assets/img/icons/profile.png') }}" alt="" />
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0"
+                                aria-labelledby="navbarDropdownUser">
+                                <div class="bg-white dark__bg-1000 rounded-2 py-2">
+                                    <a class="dropdown-item" href="profil_admin">Profile &amp;
+                                        account</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="admin_logout">Logout</a>
+                                </div>
                             </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0"
-                            aria-labelledby="navbarDropdownUser">
-                            <div class="bg-white dark__bg-1000 rounded-2 py-2">
-                                <a class="dropdown-item" href="profil_admin">Profile &amp;
-                                    account</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="admin_logout">Logout</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
                     </ul>
                 </nav>
                 <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-lg" style="display: none;"
@@ -183,10 +190,9 @@
                                     title="Switch to dark theme"><span class="fas fa-moon fs-0"></span></label>
                             </div>
                         </li>
-                        
+
                         <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser"
-                                role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="avatar avatar-xl">
                                     <img class="rounded-circle"
                                         src="{{ asset('admin/assets/img/icons/profile.png') }}" alt="" />
@@ -226,6 +232,10 @@
                         navbarTop.remove(navbarTop);
                         navbarTopCombo.remove(navbarTopCombo);
                     }
+                    var options = {
+                        valueNames: ['status_peminjam', 'nama_peminjam', 'nama_alat', 'jml_alat', 'tgl_pinjam', 'tgl_kembali', 'status_final']
+                    };
+                    var userList = new List('data', options);
                 </script>
                 @yield('hello')
                 <div class="row g-0">
@@ -245,10 +255,13 @@
     <script src="{{ asset('admin/vendors/echarts/echarts.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/lodash/lodash.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/plyr/plyr.polyfilled.min.js/polyfill.io/v3/polyfill.min58be.js?features=window.scroll') }}"></script>
+    <script
+        src="{{ asset('admin/vendors/plyr/plyr.polyfilled.min.js/polyfill.io/v3/polyfill.min58be.js?features=window.scroll') }}">
+    </script>
     {{-- <script src="{{ asset('admin/../../../polyfill.io/v3/polyfill.min58be.js?features=window.scroll') }}"></script> --}}
     <script src="{{ asset('admin/vendors/list.js/list.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/theme.js') }}"></script>
-</body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js">
+    </body>
 
 </html>

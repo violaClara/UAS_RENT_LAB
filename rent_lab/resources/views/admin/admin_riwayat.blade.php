@@ -11,38 +11,47 @@
                 <div class="tab-pane preview-tab-pane active" role="tabpanel"
                     aria-labelledby="tab-dom-6df155b7-0a7a-4492-a93a-0c9583531af8"
                     id="dom-6df155b7-0a7a-4492-a93a-0c9583531af8">
-                    <div id="tableExample3" data-list='{"valueNames":["nama_peminjam","nama_alat","jml_alat", "tgl_pinjam", "tgl_kembali", "status_final"],"filter":true}'>
+                    <div id="tableExample3" data-list='{"valueNames":["status_peminjam", "nama_peminjam","nama_alat","jml_alat", "tgl_pinjam", "tgl_kembali", "status_final"],"filter":true}'>
                         {{-- <div class="row justify-content-end g-0">
-                            <div class="col-auto px-3"> <select class="form-select form-select-sm mb-3"
-                                    aria-label="Bulk actions" data-list-filter="data-list-filter">
-                                    <option selected="" value="">Select status final</option>
+                            <div class="col-auto px-3"> <select class="form-select form-select-sm mb-3" aria-label="Bulk actions" data-list-filter="data-list-filter">
+                                    <option selected="" value="">Pilih status final</option>
                                     <option value="Approved">Approved</option>
                                     <option value="Pending">Pending</option>
                                     <option value="Rejected">Rejected</option>
                                 </select></div>
                         </div> --}}
+                        <div id="data">
+                            <div class="row justify-content-end g-8">
+                                <div class="col-auto px-3">
+                                    <div class="search-box" style="width: 80%;" data-list='{"valueNames":["title"]}'>
+                                        <form class="position-relative mb-3" data-bs-toggle="search" data-bs-display="static"><input class="search form-control search-input fuzzy-search" type="search" placeholder="Filter" aria-label="Search" />
+                                        <span class="fas fa-search search-box-icon"></span>
+                                        </form>
+                                        <div class="btn-close-falcon-container position-absolute end-0 top-50 translate-middle shadow-none" data-bs-dismiss="search">
+                                        <div class="btn-close-falcon" aria-label="Close"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <input class="search" placeholder="Search" /> --}}
                         <div class="table-responsive scrollbar">
                             <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
                                 <thead class="bg-200 text-900">
                                     <tr>
-                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="nama_peminjam">Nama
-                                            Peminjam</th>
-                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="nama_alat">Nama
-                                            Alat</th>
-                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="jml_alat">Jumlah
-                                            Alat Pinjam</th>
-                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="tgl_pinjam">Tanggal
-                                            Peminjaman</th>
-                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="tgl_kembali">
-                                            Tanggal Pengembalian</th>
-                                        <th class="sort align-middle white-space-nowrap text-end pe-4 text-center"
-                                            data-sort="status_final">Status Final</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status_peminjam">Status <br> Peminjam</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="nama_peminjam">Nama <br> Peminjam</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="nama_alat">Nama <br> Alat</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="jml_alat">Jumlah <br> Alat Pinjam</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="tgl_pinjam">Tanggal <br> Peminjaman</th>
+                                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="tgl_kembali">Tanggal <br> Pengembalian</th>
+                                        <th class="sort align-middle white-space-nowrap text-end pe-4 text-center" data-sort="status_final">Status <br> Final</th>
 
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="table-purchase-body">
                                     @foreach ($borrowHistories as $history)
                                     <tr class="btn-reveal-trigger">
+                                        <td class="align-middle white-space-nowrap status_peminjam text-center">Dosen</td>
                                         <td class="align-middle white-space-nowrap nama_peminjam text-center">{{ $history->borrower_name }}</td>
                                         <td class="align-middle white-space-nowrap nama_alat text-center">{{ $history->tool->tool_name }}</td>
                                         <td class="align-middle text-end fs-0 white-space-nowrap jml_alat text-center">{{ $history->amount }}</td>
@@ -64,6 +73,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
                 </div>
